@@ -1,5 +1,7 @@
+package rasmus;
+
 public interface IooniNimi{
-	public String nimetus();
-	public double aatommassideSumma();
-	public String laeng();
+	String nimetus();
+	int aatommassideSumma();
+	String laeng();
 }

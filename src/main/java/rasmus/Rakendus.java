@@ -12,9 +12,27 @@ import javax.servlet.http.HttpSession;
 public class Rakendus {
 	@Autowired
 	@RequestMapping("/iooniteke")
-	public String IooniNimi(){
-		Ioon ioon=new Ioon();
-		return kysiNimetus(H, +);
+	public String IooniTeke(){
+		Ioon i1=new Ioon("Na", 1, "+");
+		return "Iooni nimi on: " + i1.nimetus + i1.aatommassideSumma + i1.laeng;
+	}
+	
+	@Autowired
+	@RequestMapping("/ioonideliitmine")
+	public String AineTeke(){
+		String nimetus = "keedusool";
+		Ioon i1 = new Ioon("Na", 1, "+");
+		Ioon i2 = new Ioon("Cl", 1, "-");
+		IooniLiitmine a1=new IooniLiitmine(nimetus, i1, i2);
+		return a1.toString();
+	}
+	
+	@Autowired
+	@RequestMapping("/ioonimass")
+	public String MolekulideMass(){
+		IooniMass m1= new IooniMass("Na", 23);
+		IooniMass m2= new IooniMass("H", 1);
+		return "Nende kahe molekuli masside summa on: " + (m1.molekulmass+m2.molekulmass) + " ";
 	}
 		
 	public static void main(String[] args){
